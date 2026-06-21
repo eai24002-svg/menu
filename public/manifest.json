@@ -1,0 +1,28 @@
+{
+  "name": "روح الحياة - Spirito Vita",
+  "short_name": "روح الحياة",
+  "description": "قائمة طعام مطعم روح الحياة - طعام صحي بجودة مميزة",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF7F2",
+  "theme_color": "#1B4D4A",
+  "orientation": "portrait",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/logo-ar.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo-en.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["food", "restaurant"],
+  "screenshots": []
+}
