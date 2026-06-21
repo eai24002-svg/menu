@@ -83,6 +83,12 @@ function MenuApp({ data }: { data: MenuData }) {
     setSearchQuery("");
   };
 
+  useEffect(() => {
+    if (selectedCategory) {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+  }, [selectedCategory]);
+
   const currentCategory = sortedCategories.find((c) => c.id === selectedCategory);
 
   return (
@@ -216,6 +222,7 @@ function MenuApp({ data }: { data: MenuData }) {
                   onClick={() => {
                     setSelectedCategory(null);
                     setActiveTab("home");
+                    window.scrollTo({ top: 0, behavior: "instant" });
                   }}
                   className="flex items-center gap-2 text-teal-forest/60 font-arabic text-sm mb-4 mt-2"
                 >
