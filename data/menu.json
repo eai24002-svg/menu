@@ -11,9 +11,10 @@
     "descriptionAr": "في مطعم روح الحياة نقدم أطباقاً شرقية وغربية بطريقة صحية مبتكرة، بقيمة غذائية محسوبة. نقدم نظاماً غذائياً مع كورس رياضي كخدمة مجانية لجميع الزبائن.",
     "descriptionEn": "At Spirito Vita we offer Eastern and Western dishes in an innovative healthy way, with calculated nutritional value.",
     "hours": "يومياً من 10:00 صباحاً حتى 12:00 منتصف الليل",
-    "mapUrl": "https://maps.google.com/?q=بعقوبة+الجديدة+شارع+الطابو+ديالى",
-    "latitude": 33.748,
-    "longitude": 44.643,
+    "mapUrl": "https://maps.app.goo.gl/LaF2v71PpdEjbBLi9",
+    "mapPlaceId": "0x15564d000e8eca43:0x63b668ffb9998682",
+    "latitude": 33.7481605,
+    "longitude": 44.6255653,
     "backgroundMusic": "/uploads/audio/background-1781828939799.mp3"
   },
   "categories": [
@@ -35,7 +36,8 @@
           "descriptionEn": "Penne Arrabbiata — A healthy Pasta dish from Spirito Vita",
           "carbs": 62,
           "protein": 29,
-          "fats": 17
+          "fats": 17,
+          "image": "/uploads/items/p1-1782493103285.jpg"
         },
         {
           "id": "p2",

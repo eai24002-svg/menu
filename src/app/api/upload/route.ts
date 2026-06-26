@@ -4,7 +4,7 @@ import path from "path";
 import { verifyAdminPassword } from "@/lib/menu-store";
 
 const UPLOAD_DIR = path.join(process.cwd(), "public", "uploads", "items");
-const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+const MAX_SIZE = 25 * 1024 * 1024; // 25MB
 const ALLOWED_TYPES = new Set([
   "image/jpeg",
   "image/png",
@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
 
     if (file.size > MAX_SIZE) {
       return NextResponse.json(
-        { error: "حجم الصورة كبير جداً (الحد الأقصى 5 ميجا)" },
+        { error: "حجم الصورة كبير جداً (الحد الأقصى 25 ميجا)" },
         { status: 400 }
       );
     }

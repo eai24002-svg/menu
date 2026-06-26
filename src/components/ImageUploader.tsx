@@ -120,7 +120,7 @@ export default function ImageUploader({
 
       <p className="text-[10px] text-teal-forest/40 font-arabic mt-2 flex items-center gap-1">
         <ImageIcon size={10} />
-        JPG, PNG, WEBP — حد أقصى 5 ميجا
+        JPG, PNG, WEBP — حد أقصى 25 ميجا
       </p>
 
       {error && (

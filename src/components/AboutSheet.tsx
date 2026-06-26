@@ -14,6 +14,7 @@ import {
   Heart,
 } from "lucide-react";
 import type { Restaurant } from "@/lib/types";
+import { getMapEmbedUrl, getMapOpenUrl } from "@/lib/map";
 
 interface AboutSheetProps {
   isOpen: boolean;
@@ -22,9 +23,8 @@ interface AboutSheetProps {
 }
 
 export default function AboutSheet({ isOpen, onClose, restaurant }: AboutSheetProps) {
-  const mapEmbed = restaurant.latitude && restaurant.longitude
-    ? `https://maps.google.com/maps?q=${restaurant.latitude},${restaurant.longitude}&z=15&output=embed`
-    : null;
+  const mapEmbed = getMapEmbedUrl(restaurant);
+  const mapOpenUrl = getMapOpenUrl(restaurant);
 
   return (
     <AnimatePresence>
@@ -96,23 +96,40 @@ export default function AboutSheet({ isOpen, onClose, restaurant }: AboutSheetPr
               </div>
 
               {/* Map */}
-              {mapEmbed && (
-                <div className="rounded-2xl overflow-hidden shadow-card border border-teal-forest/5">
-                  <iframe
-                    src={mapEmbed}
-                    width="100%"
-                    height="180"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="موقع المطعم"
-                  />
+              {mapEmbed && mapOpenUrl && (
+                <div className="rounded-2xl overflow-hidden shadow-card border border-teal-forest/5 bg-white">
                   <a
-                    href={restaurant.mapUrl}
+                    href={mapOpenUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 py-3 bg-white text-teal-forest font-arabic text-sm font-semibold hover:bg-teal-forest/5 transition-colors"
+                    className="block relative w-full aspect-[4/3] max-h-[240px] bg-teal-forest/5 group"
+                    aria-label="فتح موقع المطعم على خرائط Google"
+                  >
+                    <iframe
+                      key={mapEmbed}
+                      src={mapEmbed}
+                      className="absolute inset-0 w-full h-full border-0 pointer-events-none scale-[1.02]"
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="موقع المطعم — روح الحياة"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-teal-deep/50 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute bottom-3 right-3 left-3 flex items-end justify-between gap-2 pointer-events-none">
+                      <p className="text-white text-xs font-arabic leading-snug drop-shadow-md line-clamp-2">
+                        {restaurant.address}
+                      </p>
+                      <span className="flex-shrink-0 flex items-center gap-1 bg-white/95 text-teal-forest text-[10px] font-arabic font-bold px-2.5 py-1.5 rounded-full shadow-sm">
+                        <MapPin size={12} className="text-olive-fresh" />
+                        اضغط للفتح
+                      </span>
+                    </div>
+                  </a>
+                  <a
+                    href={mapOpenUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 py-3.5 bg-white text-teal-forest font-arabic text-sm font-semibold hover:bg-teal-forest/5 transition-colors border-t border-teal-forest/5"
                   >
                     <ExternalLink size={14} />
                     فتح في خرائط Google

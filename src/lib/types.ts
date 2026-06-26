@@ -38,6 +38,7 @@ export interface Restaurant {
   descriptionEn?: string;
   hours?: string;
   mapUrl?: string;
+  mapPlaceId?: string;
   latitude?: number;
   longitude?: number;
   backgroundMusic?: string;
